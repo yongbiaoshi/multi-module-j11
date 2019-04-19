@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: sbmm2.web
+logging:
+  level:
+    root: INFO
+    org.springframework.web.filter: DEBUG
+    com.my.test.sbmm2.web.config.LoggingFilter: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.engine.query.HQLQueryPlan: TRACE
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %4line %clr(:){faint} %m%n%wEx'
+---
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: wlb1234
+    name: test-ds
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      data-source-properties:
+        serverTimezone: GMT+8
+        characterEncoding: utf8
+        useSSL: false
+  jpa:
+    open-in-view: true
+    show-sql: false
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+        use_sql_comments: true
